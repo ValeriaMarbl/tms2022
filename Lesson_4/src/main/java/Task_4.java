@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Task_4 {
+public class Task4 {
     public static void main(String[] args) {
         taskOne();
         taskTwo();
@@ -18,7 +18,7 @@ public class Task_4 {
         foobar(15);
         printPrimeNumbers();
 
-        () {
+        private static void taskOne() {
             Random random = new Random();
             int rand = random.nextInt(8);
             switch (rand) {
@@ -37,10 +37,7 @@ public class Task_4 {
                 case 5:
                     System.out.println("Пятница");
                     break;
-                case 6:
-                    System.out.println("Выходной");
-                    break;
-                case 7:
+                case 6, 7:
                     System.out.println("Выходной");
                     break;
                 default:
@@ -61,7 +58,18 @@ public class Task_4 {
 //2) Одноклеточная амеба каждые 3 часа делится на 2 клетки. Определить,
 //         сколько амеб будет через 3, 6, 9, 12,..., 24 часа
 
-
+        private static void taskThree() {
+            System.out.println("Введте число");
+            Scanner scanner = new Scanner(System.in);
+            int number  = scanner.nextInt();
+            if (number > 0) {
+                System.out.println("Число положительное, количество цифр", number);
+            } else if(number < 0) {
+                System.out.println("Число отрицательное, количество цифр", number);
+            } else {
+                System.out.println("Число = 0. Это число не положительное и не отрицательное. Количество цифр = 1", number);
+            }
+        }
 //3) В переменную записываем число.
 //        Надо вывести на экран сколько в этом числе цифр и положительное оно или отрицательное.
 //        Например, Введите число: 5
@@ -172,7 +180,17 @@ public class Task_4 {
      * далее вывести массив на консоль
      */
     private static void printArray() {
-        // тут пишем логику
+       int count = 0;
+       Scanner scanner = new Scanner(System.in);
+       do {
+           if (scanner.hasNext()) {
+               count = scanner.nextInt();
+           } else {
+               System.out.println("Ошибка");
+               scanner.next();
+           }
+       } while (count <= 0);
+        System.out.println();
     }
 
     /**
@@ -198,7 +216,13 @@ public class Task_4 {
      * в котором это значение распечатается на консоль.
      */
     public static int calculateCountOfOddElementsInMatrix(int[] ints) {
-
+        int count = 0;
+        for(int i : ints) {
+            if(i % 2 != 0) {
+                count ++;
+            }
+        }
+        return count;
     }
 
     /**
@@ -221,7 +245,7 @@ public class Task_4 {
      * - если остаток от деления на 3 и 5 равен нулю 0 ,то вывести "foobar" (example of number - 15)
      */
     public static void foobar(int number) {
-        if ((number % 3 == 0) & (number % 5 == 0)) {
+        if ((number % 3 == 0) && (number % 5 == 0)) {
             System.out.println("foobar");
         } else if (number % 3 == 0) {
             System.out.println("foo");
